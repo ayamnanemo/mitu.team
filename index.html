@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <title>M     I     T    U</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+        
+    </head>
+<body>
+     <header>
+        <a href="#" class="logo">M     I     T    U</a>
+        <nav class="navigation">
+            <a href="#Encrypt">Encrypt</a>
+            <a href="#Teams">Teams</a>
+            
+     </header>
+     <section class="main" id="HOME">
+        <div>
+            <h2>MITU<br><span>Cyber security</span></h2>
+
+            <a href="#encrypting" class="main-btn">ENCRYPTING AND DECRYPTING</a>
+            
+
+
+        </div>
+
+    </section>
+ <center>
+     <section class="main1" id="Encrypt">
+        <h2 class="title">ENCRYPT AND DECRYPT</h2>
+        <div>
+            <textarea id="plaintext" rows="4" cols="50"></textarea><br>
+            <button onclick="encrypt()" class="main-btn">Encrypt</button><br>
+            <textarea id="ciphertext" rows="4" cols="50" ></textarea><br>
+            <button onclick="decrypt()" class="main-btn1">Decrypt</button><br>
+            <textarea id="decryptedtext" rows="4" cols="50" readonly></textarea>
+        
+            <script>
+                function encrypt() {
+                    var plaintext = document.getElementById("plaintext").value;
+                    var key = "secret-key"; // Replace with your seENCRYPTING AND DECRYPTINGcret key
+                    var ciphertext = CryptoJS.AES.encrypt(plaintext, key).toString();
+                    document.getElementById("ciphertext").value = ciphertext;
+                }
+        
+                function decrypt() {
+                    var ciphertext = document.getElementById("ciphertext").value;
+                    var key = "secret-key"; // Replace with your secret key
+                    var bytes = CryptoJS.AES.decrypt(ciphertext, key);
+                    var decryptedText = bytes.toString(CryptoJS.enc.Utf8);
+                    document.getElementById("decryptedtext").value = decryptedText;
+                }
+            </script>
+        </div>
+     </section>
+</center>
+
+ <section class="Teams" id="Teams">
+    <h2 class="title">Teams</h2>
+    <div class="content">
+        <div class="Teams-card">
+            <div class="Teams-img">
+                <img src="images/a.jpg">
+            </div>
+            <div class="Teams-info">
+                <strong class="Teams">Ayman Yahya [Team Leader]</strong>
+
+            </div>
+        </div>
+         <div class="Teams-card">
+            <div class="Teams-img">
+                <img src="images/2.jpeg">
+            </div>
+            <div class="Teams-info">
+                <strong class="Teams">Tawfiq Mohammad</strong>
+
+            </div>
+        </div>
+        <div class="Teams-card">
+            <div class="Teams-img">
+                <img src="images/3.jpeg">
+            </div>
+            <div class="Teams-info">
+                <strong class="Teams">Mohammed Abo Haswa</strong>
+
+            </div>
+        </div>
+        <div class="Teams-card">
+            <div class="Teams-img">
+                <img src="images/7.jpeg">
+            </div>
+            <div class="Teams-info">
+                <strong class="Teams">Abdulrahman Ahmed</strong>
+
+            </div>
+        </div>
+        <div class="Teams-card">
+            <div class="Teams-img">
+                <img src="images/9.jpeg">
+            </div>
+            <div class="Teams-info">
+                <strong class="Teams">Amr Mohammed</strong>
+
+            </div>
+        </div>
+        
+
+
+
+ </section>
+ <script>
+    function encrypt() {
+        var plaintext = document.getElementById("plaintext").value;
+        var key = "secret-key"; // Replace with your secret key
+        if (plaintext !== "") {
+            var ciphertext = CryptoJS.AES.encrypt(plaintext, key).toString();
+            document.getElementById("ciphertext").value = ciphertext;
+        } else {
+            alert("Please enter text to encrypt.");
+        }
+    }
+
+    function decrypt() {
+        var ciphertext = document.getElementById("ciphertext").value;
+        var key = "secret-key"; // Replace with your secret key
+        if (ciphertext !== "") {
+            var bytes = CryptoJS.AES.decrypt(ciphertext, key);
+            var decryptedText = bytes.toString(CryptoJS.enc.Utf8);
+            document.getElementById("decryptedtext").value = decryptedText;
+        } else {
+            alert("Please enter text to decrypt.");
+        }
+    }
+ </script>
+</body>
+</html>
